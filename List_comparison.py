@@ -1,20 +1,13 @@
 from statistics import mean as mn
 
-class List_comparison:
+class ListComparison():
     def __init__(self):
-        self.list1, self.list2 = [], []
-    
-    def print_lists(self):
-        print(*self.list1, sep=' ')
-        print(*self.list2, sep=' ')
+        self.avg1, self.avg2 = 0, 0
 
-    def set_lists(self,list1,list2):
-        self.list1, self.list2 = list1, list2
-    
-    def comparison_averages(self):
-        self.avg1, self.avg2 = mn(self.list1), mn(self.list2)
+    def comparison_averages(self, list1: list, list2: list):
+        self.avg1, self.avg2 = mn(list1), mn(list2)
         if self.avg1 > self.avg2:
-            print(f"Первый список имеет большее среднее значение({round(self.avg1,2)} > {round(self.avg2,2)})")
+            return "Первый список имеет большее среднее значение"
         elif self.avg1 < self.avg2:
-            print(f"Второй список имеет большее среднее значение({round(self.avg1,2)} < {round(self.avg2,2)})")
-        else: print(f"Средние значения равны {round(self.avg1,2)}")
+            return "Второй список имеет большее среднее значение"
+        else: return "Средние значения равны"
